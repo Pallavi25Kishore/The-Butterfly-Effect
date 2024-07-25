@@ -1,7 +1,13 @@
 import React from "react";
+import GameBoard from "./GameBoard.jsx";
 
 const App = () => {
-  return <div>Test</div>;
+  return (
+    <>
+      <button>NEW GAME</button>
+      <GameBoard />
+    </>
+  );
 };
 
 export default App;
