@@ -4,3 +4,4 @@ client/dist/bundle.js.map
 .env
 config.js
 package-lock.json
+.DS_Store
