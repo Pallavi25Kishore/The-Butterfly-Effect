@@ -18,10 +18,10 @@ const App = () => {
   ];
 
   const [currentBoard, setCurrentBoard] = useState([]);
-  const [cardOne, setCardOne] = useState("");
-  const [cardTwo, setCardTwo] = useState("");
-  const [frontVisible, setFrontVisible] = useState("true");
-  const [backVisible, setBackVisible] = useState("false");
+  const [cardOne, setCardOne] = useState({});
+  const [cardTwo, setCardTwo] = useState({});
+  const [frontVisible, setFrontVisible] = useState(true);
+  const [backVisible, setBackVisible] = useState(false);
   const [startGame, setStartGame] = useState(false);
 
   useEffect(() => {
@@ -37,21 +37,21 @@ const App = () => {
     setCurrentBoard(totalTiles);
   }, [startGame]);
 
-  const handleCardClick = (imageUrl) => {
-    cardOne === "" && cardTwo === ""
-      ? setCardOne(imageUrl)
-      : setCardTwo(imageUrl);
+  const handleCardClick = (tile) => {
+    cardOne.src === undefined && cardTwo.src === undefined
+      ? setCardOne(tile)
+      : setCardTwo(tile);
   };
 
-  if (cardTwo !== "") {
-    if (cardOne === cardTwo) {
+  if (cardTwo.src !== undefined) {
+    if (cardOne.src === cardTwo.src) {
       console.log("matched");
-      setCardOne("");
-      setCardTwo("");
+      setCardOne({});
+      setCardTwo({});
     } else {
       console.log("did not match");
-      setCardOne("");
-      setCardTwo("");
+      setCardOne({});
+      setCardTwo({});
     }
   }
 
