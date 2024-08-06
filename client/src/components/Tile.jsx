@@ -1,8 +1,8 @@
 import React from "react";
 
-const Tile = ({ tile }) => {
+const Tile = ({ tile, handleCardClick }) => {
   return (
-    <div>
+    <div onClick={() => handleCardClick(tile.src)}>
       <div className="front" className="border-2 border-black">
         <img src="/butterfly.png"></img>
       </div>
