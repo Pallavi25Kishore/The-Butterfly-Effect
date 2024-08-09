@@ -71,17 +71,19 @@ const App = () => {
       setCardOne({});
       setCardTwo({});
     } else {
-      console.log("did not match");
-      let updatedArr = currentBoard.map((card) => {
-        if (card.src === cardOne.src || card.src === cardTwo.src) {
-          return { src: card.src, front: true, index: card.index };
-        } else {
-          return card;
-        }
-      });
-      setCurrentBoard(updatedArr);
-      setCardOne({});
-      setCardTwo({});
+      setTimeout(() => {
+        console.log("did not match");
+        let updatedArr = currentBoard.map((card) => {
+          if (card.src === cardOne.src || card.src === cardTwo.src) {
+            return { src: card.src, front: true, index: card.index };
+          } else {
+            return card;
+          }
+        });
+        setCurrentBoard(updatedArr);
+        setCardOne({});
+        setCardTwo({});
+      }, 500);
     }
   }
 
