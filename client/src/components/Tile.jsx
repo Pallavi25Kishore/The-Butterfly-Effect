@@ -2,8 +2,14 @@ import React from "react";
 
 const Tile = ({ tile, handleCardClick }) => {
   return (
-    <div onClick={() => handleCardClick(tile)}>
-      {tile.front ? (
+    <div
+      onClick={() => {
+        if (tile.front !== "matched") {
+          handleCardClick(tile);
+        }
+      }}
+    >
+      {tile.front === true ? (
         <div className="front" className="border-2 border-black">
           <img src="/butterfly.png"></img>
         </div>
