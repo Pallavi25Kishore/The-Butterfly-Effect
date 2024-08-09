@@ -59,6 +59,15 @@ const App = () => {
   if (cardTwo.src !== undefined) {
     if (cardOne.src === cardTwo.src) {
       console.log("matched");
+
+      let updatedArr = currentBoard.map((card) => {
+        if (card.src === CardOne.src) {
+          return { src: card.src, front: "matched", index: card.index };
+        } else {
+          return card;
+        }
+      });
+
       setCardOne({});
       setCardTwo({});
     } else {
