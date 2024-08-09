@@ -34,13 +34,26 @@ const App = () => {
       totalTiles[randomIndex] = temp;
     }
 
-    setCurrentBoard(totalTiles);
+    let totalIndexedTiles = totalTiles.map((tile, index) => {
+      return { ...tile, index: index };
+    });
+
+    setCurrentBoard(totalIndexedTiles);
   }, [startGame]);
 
-  const handleCardClick = (tile) => {
+  const handleCardClick = (clickedTile) => {
+    let updatedArr = currentBoard.map((card) => {
+      if (card.index === clickedTile.index) {
+        return { src: card.src, front: false, index: card.index };
+      } else {
+        return card;
+      }
+    });
+    setCurrentBoard(updatedArr);
+
     cardOne.src === undefined && cardTwo.src === undefined
-      ? setCardOne(tile)
-      : setCardTwo(tile);
+      ? setCardOne(clickedTile)
+      : setCardTwo(clickedTile);
   };
 
   if (cardTwo.src !== undefined) {
