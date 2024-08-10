@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import GameBoard from "./GameBoard.jsx";
+import StartGameButton from "./StartGameButton.jsx";
 
 const App = () => {
   const tiles = [
@@ -20,8 +21,6 @@ const App = () => {
   const [currentBoard, setCurrentBoard] = useState([]);
   const [cardOne, setCardOne] = useState({});
   const [cardTwo, setCardTwo] = useState({});
-  const [frontVisible, setFrontVisible] = useState(true);
-  const [backVisible, setBackVisible] = useState(false);
   const [startGame, setStartGame] = useState(false);
 
   useEffect(() => {
@@ -96,7 +95,7 @@ const App = () => {
 
   return (
     <>
-      <button onClick={handleStartGame}>NEW GAME</button>
+      <StartGameButton handleStartGame={handleStartGame} />
       <GameBoard tiles={currentBoard} handleCardClick={handleCardClick} />
     </>
   );
