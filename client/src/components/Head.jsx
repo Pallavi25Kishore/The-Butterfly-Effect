@@ -2,9 +2,10 @@ import React from "react";
 
 const Head = () => {
   return (
-    <div>
-      <span>THE BUTTERFLY EFFECT</span>
-    </div>
+    <div
+      className="bg-cover h-20"
+      style={{ backgroundImage: 'url("/card10.png")' }}
+    ></div>
   );
 };
 

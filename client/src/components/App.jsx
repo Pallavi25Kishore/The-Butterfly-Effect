@@ -6,16 +6,16 @@ import Head from "./Head.jsx";
 
 const App = () => {
   const tiles = [
-    { src: "/card1.png", front: true },
+    // { src: "/card1.png", front: true },
     { src: "/card2.png", front: true },
     { src: "/card3.png", front: true },
     { src: "/card4.png", front: true },
-    { src: "/card5.png", front: true },
+    // { src: "/card5.png", front: true },
     { src: "/card6.png", front: true },
     { src: "/card7.png", front: true },
     { src: "/card8.png", front: true },
-    { src: "/card9.png", front: true },
-    { src: "/card10.png", front: true },
+    // { src: "/card9.png", front: true },
+    // { src: "/card10.png", front: true },
     { src: "/card11.png", front: true },
     { src: "/card12.png", front: true },
     { src: "/card13.png", front: true },

@@ -11,15 +11,18 @@ const Tile = ({ tile, handleCardClick }) => {
       className="w-40 h-50"
     >
       {tile.front === true ? (
-        <div className="border-2 rounded-sm border-olivegreen w-full h-full">
+        <div className="w-full h-full">
           <img
             src="/fronttile.png"
-            className="object-cover w-full h-full"
+            className="object-cover w-full h-full rounded-2xl"
           ></img>
         </div>
       ) : (
-        <div className="border-2 rounded-sm w-full h-full">
-          <img src={tile.src} className="object-cover w-full h-full"></img>
+        <div className="w-full h-full">
+          <img
+            src={tile.src}
+            className="object-cover w-full h-full rounded-2xl"
+          ></img>
         </div>
       )}
     </div>
