@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import GameBoard from "./GameBoard.jsx";
 import StartGameButton from "./StartGameButton.jsx";
+import StepCount from "./StepCount.jsx";
 
 const App = () => {
   const tiles = [
@@ -22,6 +23,7 @@ const App = () => {
   const [cardOne, setCardOne] = useState({});
   const [cardTwo, setCardTwo] = useState({});
   const [startGame, setStartGame] = useState(false);
+  const [stepCount, setStepCount] = useState(0);
 
   useEffect(() => {
     let totalTiles = tiles.concat(tiles);
@@ -39,6 +41,41 @@ const App = () => {
 
     setCurrentBoard(totalIndexedTiles);
   }, [startGame]);
+
+  useEffect(() => {
+    if (cardTwo.src !== undefined) {
+      if (cardOne.src === cardTwo.src) {
+        console.log("matched");
+
+        let updatedArr = currentBoard.map((card) => {
+          if (card.src === cardOne.src) {
+            return { src: card.src, front: "matched", index: card.index };
+          } else {
+            return card;
+          }
+        });
+        setCurrentBoard(updatedArr);
+        setStepCount(stepCount + 1);
+        setCardOne({});
+        setCardTwo({});
+      } else {
+        setTimeout(() => {
+          console.log("did not match");
+          let updatedArr = currentBoard.map((card) => {
+            if (card.src === cardOne.src || card.src === cardTwo.src) {
+              return { src: card.src, front: true, index: card.index };
+            } else {
+              return card;
+            }
+          });
+          setCurrentBoard(updatedArr);
+          setStepCount(stepCount + 1);
+          setCardOne({});
+          setCardTwo({});
+        }, 500);
+      }
+    }
+  }, [cardTwo]);
 
   const handleCardClick = (clickedTile) => {
     if (clickedTile.index === cardOne.index) {
@@ -63,44 +100,15 @@ const App = () => {
       : setCardTwo(clickedTile);
   };
 
-  if (cardTwo.src !== undefined) {
-    if (cardOne.src === cardTwo.src) {
-      console.log("matched");
-
-      let updatedArr = currentBoard.map((card) => {
-        if (card.src === cardOne.src) {
-          return { src: card.src, front: "matched", index: card.index };
-        } else {
-          return card;
-        }
-      });
-      setCurrentBoard(updatedArr);
-      setCardOne({});
-      setCardTwo({});
-    } else {
-      setTimeout(() => {
-        console.log("did not match");
-        let updatedArr = currentBoard.map((card) => {
-          if (card.src === cardOne.src || card.src === cardTwo.src) {
-            return { src: card.src, front: true, index: card.index };
-          } else {
-            return card;
-          }
-        });
-        setCurrentBoard(updatedArr);
-        setCardOne({});
-        setCardTwo({});
-      }, 500);
-    }
-  }
-
   const handleStartGame = () => {
     setStartGame(!startGame);
+    setStepCount(0);
   };
 
   return (
     <>
       <StartGameButton handleStartGame={handleStartGame} />
+      <StepCount stepCount={stepCount} />
       <GameBoard tiles={currentBoard} handleCardClick={handleCardClick} />
     </>
   );
