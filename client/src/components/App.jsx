@@ -105,12 +105,20 @@ const App = () => {
   };
 
   return (
-    <>
+    <div
+      style={{ backgroundColor: "#52495A", height: "100vh", width: "100vw" }}
+    >
       <Head />
-      <StartGameButton handleStartGame={handleStartGame} />
-      <StepCount stepCount={stepCount} />
-      <GameBoard tiles={currentBoard} handleCardClick={handleCardClick} />
-    </>
+      <div className="flex w-screen mt-10  h-11/12">
+        <div className="w-1/6">
+          <StartGameButton handleStartGame={handleStartGame} />
+          <StepCount stepCount={stepCount} />
+        </div>
+        <div className="w-5/6 ml-30">
+          <GameBoard tiles={currentBoard} handleCardClick={handleCardClick} />
+        </div>
+      </div>
+    </div>
   );
 };
 
