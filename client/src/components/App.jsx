@@ -2,21 +2,23 @@ import React, { useState, useEffect } from "react";
 import GameBoard from "./GameBoard.jsx";
 import StartGameButton from "./StartGameButton.jsx";
 import StepCount from "./StepCount.jsx";
+import Head from "./Head.jsx";
 
 const App = () => {
   const tiles = [
-    { src: "/brain-1.png", front: true },
-    { src: "/brain-2.png", front: true },
-    { src: "/brain-3.png", front: true },
-    { src: "/brain-4.png", front: true },
-    { src: "/brain-5.png", front: true },
-    { src: "/brain-6.png", front: true },
-    { src: "/brain-7.png", front: true },
-    { src: "/brain-8.png", front: true },
-    { src: "/brain-9.png", front: true },
-    { src: "/brain-10.png", front: true },
-    { src: "/brain-11.png", front: true },
-    { src: "/brain-12.png", front: true },
+    { src: "/card1.png", front: true },
+    { src: "/card2.png", front: true },
+    { src: "/card3.png", front: true },
+    { src: "/card4.png", front: true },
+    { src: "/card5.png", front: true },
+    { src: "/card6.png", front: true },
+    { src: "/card7.png", front: true },
+    { src: "/card8.png", front: true },
+    { src: "/card9.png", front: true },
+    { src: "/card10.png", front: true },
+    { src: "/card11.png", front: true },
+    { src: "/card12.png", front: true },
+    { src: "/card13.png", front: true },
   ];
 
   const [currentBoard, setCurrentBoard] = useState([]);
@@ -45,8 +47,6 @@ const App = () => {
   useEffect(() => {
     if (cardTwo.src !== undefined) {
       if (cardOne.src === cardTwo.src) {
-        console.log("matched");
-
         let updatedArr = currentBoard.map((card) => {
           if (card.src === cardOne.src) {
             return { src: card.src, front: "matched", index: card.index };
@@ -60,7 +60,6 @@ const App = () => {
         setCardTwo({});
       } else {
         setTimeout(() => {
-          console.log("did not match");
           let updatedArr = currentBoard.map((card) => {
             if (card.src === cardOne.src || card.src === cardTwo.src) {
               return { src: card.src, front: true, index: card.index };
@@ -107,6 +106,7 @@ const App = () => {
 
   return (
     <>
+      <Head />
       <StartGameButton handleStartGame={handleStartGame} />
       <StepCount stepCount={stepCount} />
       <GameBoard tiles={currentBoard} handleCardClick={handleCardClick} />
