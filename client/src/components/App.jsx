@@ -44,6 +44,11 @@ const App = () => {
     if (clickedTile.index === cardOne.index) {
       return;
     }
+
+    if (cardOne.src !== undefined && cardTwo.src !== undefined) {
+      return;
+    }
+
     let updatedArr = currentBoard.map((card) => {
       if (card.index === clickedTile.index) {
         return { src: card.src, front: false, index: card.index };
@@ -90,7 +95,7 @@ const App = () => {
   }
 
   const handleStartGame = () => {
-    setStartGame(true);
+    setStartGame(!startGame);
   };
 
   return (
