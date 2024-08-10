@@ -42,6 +42,9 @@ const App = () => {
   }, [startGame]);
 
   const handleCardClick = (clickedTile) => {
+    if (clickedTile.index === cardOne.index) {
+      return;
+    }
     let updatedArr = currentBoard.map((card) => {
       if (card.index === clickedTile.index) {
         return { src: card.src, front: false, index: card.index };
