@@ -25,7 +25,7 @@ const App = () => {
   const [currentBoard, setCurrentBoard] = useState([]);
   const [cardOne, setCardOne] = useState({});
   const [cardTwo, setCardTwo] = useState({});
-  const [startGame, setStartGame] = useState(false);
+  const [startGame, setStartGame] = useState(0);
   const [stepCount, setStepCount] = useState(0);
   const [time, setTime] = useState(0);
 
@@ -102,12 +102,13 @@ const App = () => {
   };
 
   const handleStartGame = () => {
-    setStartGame(!startGame);
+    setStartGame((prevValue) => prevValue + 1);
     setStepCount(0);
   };
 
   useEffect(() => {
     let interval;
+    setTime(0);
     if (startGame) {
       interval = setInterval(() => {
         setTime((prevTime) => prevTime + 1);
