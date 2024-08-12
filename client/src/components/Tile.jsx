@@ -8,7 +8,7 @@ const Tile = ({ tile, handleCardClick }) => {
           handleCardClick(tile);
         }
       }}
-      className="w-40 h-50"
+      className="w-40 h-48"
     >
       {tile.front === true ? (
         <div className="w-full h-full">
