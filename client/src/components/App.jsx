@@ -27,7 +27,6 @@ const App = () => {
   const [cardTwo, setCardTwo] = useState({});
   const [startGame, setStartGame] = useState(0);
   const [stepCount, setStepCount] = useState(0);
-  const [time, setTime] = useState(0);
 
   useEffect(() => {
     let totalTiles = tiles.concat(tiles);
@@ -106,17 +105,6 @@ const App = () => {
     setStepCount(0);
   };
 
-  useEffect(() => {
-    let interval;
-    setTime(0);
-    if (startGame) {
-      interval = setInterval(() => {
-        setTime((prevTime) => prevTime + 1);
-      }, 1000);
-    }
-    return () => clearInterval(interval);
-  }, [startGame]);
-
   return (
     <div
       style={{ backgroundColor: "#52495A", height: "100vh", width: "100vw" }}
@@ -125,7 +113,7 @@ const App = () => {
       <div className="flex w-screen mt-10  h-11/12">
         <div className="w-1/6">
           <StartGameButton handleStartGame={handleStartGame} />
-          <Timer time={time} />
+          <Timer startGame={startGame} />
           <StepCount stepCount={stepCount} />
         </div>
         <div className="w-5/6 ml-20 mr-10">
