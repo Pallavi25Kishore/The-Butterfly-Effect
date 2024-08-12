@@ -128,7 +128,11 @@ const App = () => {
           <StepCount stepCount={stepCount} />
         </div>
         <div className="w-5/6 ml-20 mr-10">
-          <GameBoard tiles={currentBoard} handleCardClick={handleCardClick} />
+          {startGame ? (
+            <GameBoard tiles={currentBoard} handleCardClick={handleCardClick} />
+          ) : (
+            <div>Please start a new game to begin your brain exercise!</div>
+          )}
         </div>
       </div>
     </div>
