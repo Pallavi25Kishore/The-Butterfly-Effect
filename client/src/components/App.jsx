@@ -107,11 +107,15 @@ const App = () => {
 
   return (
     <div
-      style={{ backgroundColor: "#52495A", height: "100vh", width: "100vw" }}
+      style={{
+        backgroundImage: "linear-gradient(to right, #878283 5%, #3D3743 95%)",
+        height: "100vh",
+        width: "100vw",
+      }}
     >
       <Head />
-      <div className="flex w-screen mt-10  h-11/12">
-        <div className="w-1/6">
+      <div className="flex flex-col md:flex-row w-screen mt-10  h-11/12">
+        <div className="w-full md:w-1/6 flex flex-col gap-3 justify-start items-center md:ml-10">
           <StartGameButton handleStartGame={handleStartGame} />
           <Timer startGame={startGame} />
           <StepCount stepCount={stepCount} />
@@ -120,7 +124,18 @@ const App = () => {
           {startGame ? (
             <GameBoard tiles={currentBoard} handleCardClick={handleCardClick} />
           ) : (
-            <div>Please start a new game to begin your brain exercise!</div>
+            <div
+              className="text-3xl"
+              style={{
+                fontFamily: '"Pacifico", cursive',
+                fontWeight: "800",
+                fontStyle: "normal",
+                color: "#D8D7D4",
+              }}
+            >
+              Please start a new game to exercise and improve your memory
+              skills!
+            </div>
           )}
         </div>
       </div>
