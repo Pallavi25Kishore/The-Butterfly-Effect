@@ -15,7 +15,20 @@ const Timer = ({ startGame }) => {
     return () => clearInterval(interval);
   }, [startGame]);
 
-  return <div>{`Time Elapsed: ${time} `}</div>;
+  return (
+    <div
+      className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg bg-center w-48"
+      style={{
+        backgroundImage:
+          "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/fronttile.png)",
+        fontFamily: '"Pacifico", cursive',
+        fontWeight: "800",
+        fontStyle: "normal",
+        color: "#D8D7D4",
+        cursor: "default",
+      }}
+    >{`Time Elapsed: ${time} `}</div>
+  );
 };
 
 export default Timer;
