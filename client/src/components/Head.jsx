@@ -9,7 +9,8 @@ const Head = () => {
       <span
         className="text-4xl ml-6 p-3"
         style={{
-          fontFamily: '"Water Brush", cursive',
+          // fontFamily: '"Water Brush", cursive',
+          fontFamily: '"Pacifico", cursive',
           fontWeight: "800",
           fontStyle: "normal",
           background: "linear-gradient(to right, #3D3743, #907A7A)",
