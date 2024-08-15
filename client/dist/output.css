@@ -1185,6 +1185,10 @@ html {
   height: 100%;
 }
 
+.h-24 {
+  height: 6rem;
+}
+
 .w-1\/6 {
   width: 16.666667%;
 }
@@ -1213,8 +1217,16 @@ html {
   width: 12rem;
 }
 
+.w-20 {
+  width: 5rem;
+}
+
 .grid-cols-6 {
   grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.grid-rows-3 {
+  grid-template-rows: repeat(3, minmax(0, 1fr));
 }
 
 .flex-row {
@@ -1247,6 +1259,10 @@ html {
 
 .gap-3 {
   gap: 0.75rem;
+}
+
+.gap-2 {
+  gap: 0.5rem;
 }
 
 .rounded-2xl {
@@ -1391,11 +1407,27 @@ html {
     margin-left: 2.5rem;
   }
 
+  .md\:h-48 {
+    height: 12rem;
+  }
+
   .md\:w-1\/6 {
     width: 16.666667%;
   }
 
+  .md\:w-40 {
+    width: 10rem;
+  }
+
+  .md\:grid-cols-6 {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
   .md\:flex-row {
     flex-direction: row;
+  }
+
+  .md\:gap-4 {
+    gap: 1rem;
   }
 }

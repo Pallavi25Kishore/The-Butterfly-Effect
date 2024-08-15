@@ -4,6 +4,7 @@ import StartGameButton from "./StartGameButton.jsx";
 import StepCount from "./StepCount.jsx";
 import Head from "./Head.jsx";
 import Timer from "./Timer.jsx";
+import Chatbot from "./Chatbot.jsx";
 
 const App = () => {
   const tiles = [
@@ -138,6 +139,7 @@ const App = () => {
             </div>
           )}
         </div>
+        <Chatbot />
       </div>
     </div>
   );
