@@ -112,6 +112,7 @@ const App = () => {
         backgroundImage: "linear-gradient(to right, #878283 5%, #3D3743 95%)",
         height: "100vh",
         width: "100vw",
+        position: "relative",
       }}
     >
       <Head />
@@ -139,8 +140,8 @@ const App = () => {
             </div>
           )}
         </div>
-        <Chatbot />
       </div>
+      <Chatbot />
     </div>
   );
 };
